@@ -25,7 +25,7 @@ def processData(data):
         data = {splitData[1] : splitData[2]}
         client.publish('v1/devices/me/telemetry', json.dumps(data), 1)
     except:
-        pass
+        print("Error publishing to", BROKER_ADDRESS)
 
 def readSerial():
     bytesToRead = ser.inWaiting()
@@ -61,7 +61,7 @@ def recv_message(client, userdata, message):
             client.publish('v1/devices/me/attributes', json.dumps(recv_data), 1)
             cmd = 3 if recv_data['value'] else 2
     except:
-        pass
+        print("Error publishing to", BROKER_ADDRESS)
 
     if len(bbc_port) > 0:
         ser.write((str(cmd) + "#").encode())
