@@ -11,7 +11,7 @@ mess = ""
 #TODO: Add your token and your comport
 #Please check the comport in the device manager
 THINGS_BOARD_ACCESS_TOKEN = "1xi5HWG7iM06EoHYsLk4"
-bbc_port = "COM3"
+bbc_port = "COM6"
 if len(bbc_port) > 0:
     ser = serial.Serial(port=bbc_port, baudrate=115200)
 
